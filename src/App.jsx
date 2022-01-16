@@ -3,9 +3,9 @@ import Movie from "./components/Movie";
 import { useState, useEffect } from "react";
 
 const FEATURED_API =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
+  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=52ceeb592923ebd4b54854c874873eac&page=1";
 const SEARCH_API =
-  "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
+  "https://api.themoviedb.org/3/search/movie?&api_key=52ceeb592923ebd4b54854c874873eac&query=";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
@@ -45,10 +45,16 @@ export default function App() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-screen bg-blue-300 py-4 px-10" >
-        <div className="container" >
+      <nav className="fixed top-0 left-0 w-screen bg-blue-300 py-4 px-10">
+        <div className="container">
           <form onSubmit={handleOnSubmit}>
-            <input type="text" value={searchTerm} placeholder="Search some movies..." onChange={handleOnChange} className="w-2/3 md:w-1/3 bg-white appearance-none border-2 border-white rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none " />
+            <input
+              type="text"
+              value={searchTerm}
+              placeholder="Search some movies..."
+              onChange={handleOnChange}
+              className="w-2/3 md:w-1/3 bg-white appearance-none border-2 border-white rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none "
+            />
           </form>
         </div>
       </nav>

@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const IMAGES_API = "https://image.tmdb.org/t/p/w1280";
 
-function Movie({ title, poster_path, overview, vote_average }) {
+function Movie({ id ,title, poster_path, overview, vote_average }) {
   return (
-    <div id="movie">
+    <div>
+      <Link to={`/movie/${id}`} >
       <div className="cursor-pointer bg-white container mx-auto shadow-md rounded-sm max-w-md hover:shadow-xl transition duration-300 h-full ">
         <img
           src={IMAGES_API + poster_path}
@@ -21,17 +23,18 @@ function Movie({ title, poster_path, overview, vote_average }) {
                 {vote_average}
               </span>
             ) : vote_average < 7.9 && vote_average > 6.0 ? (
-              <span class="inline-block rounded-md mt-3 text-white bg-yellow-500 px-2 py-1 text-xs font-bold mr-3">
+              <span className="inline-block rounded-md mt-3 text-white bg-yellow-500 px-2 py-1 text-xs font-bold mr-3">
                 {vote_average}
               </span>
             ) : (
-              <span class="inline-block rounded-md text-white mt-3 bg-red-500 px-2 py-1 text-xs font-bold mr-3">
+              <span className="inline-block rounded-md text-white mt-3 bg-red-500 px-2 py-1 text-xs font-bold mr-3">
                 {vote_average}
               </span>
             )}
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 }
